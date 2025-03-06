@@ -1,17 +1,16 @@
-import { Box, ChakraProvider } from "@chakra-ui/react"
-import theme from './styles/theme'
-import { ReactNode } from "react";
-//import { LayoutProps } from "@/.next/types/app/layout"
+// app/layout.tsx
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
+import "./globals.css";
 
-interface LayoutProps {
-  children: ReactNode;
-}
-
-export default function Layout({ children} : LayoutProps) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <ChakraProvider theme={theme}>
-      {/* <Header /> */}
-      <Box as="main">{children}</Box>
-    </ChakraProvider>
-  )
+      <html lang="en">
+      <body className="bg-gray-100 text-gray-900">
+        <Navbar/>
+        {children}
+        <Footer/>
+        </body>
+      </html> 
+  );
 }
